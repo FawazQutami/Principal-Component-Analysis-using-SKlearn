@@ -92,11 +92,9 @@ if __name__ == '__main__':
     columns = ['PC' + str(i) for i in range(1, principal_components.shape[1] + 1)]
     df_pc = pd.DataFrame(data=principal_components,
                          columns=columns)
-    print(df_pc)
 
     # Add or concatenate df_pc with another dataframe (y)
     df_ = pd.concat([df_pc, y], axis=1)
-    print(df_)
 
     # Calculate the explained variance ratio
     explained_variance_ratio = np.round(pca.explained_variance_ratio_ * 100, decimals=1)
