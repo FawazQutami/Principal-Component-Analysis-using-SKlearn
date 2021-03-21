@@ -16,9 +16,9 @@ def loading_score(pc, index):
     # Sort the loading scores based on their magnitude
     sorted_loading_scores = loading_scores.abs().sort_values(ascending=False)
     # Get the names of the top 10
-    top_10_genes = sorted_loading_scores[0:10].index.values
+    top_10 = sorted_loading_scores[0:10].index.values
     # Print the names and their scores
-    print(loading_scores[top_10_genes])
+    print(loading_scores[top_10])
 
 
 def visualize_pc(df, ev_ratio):
