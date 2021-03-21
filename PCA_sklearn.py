@@ -8,17 +8,16 @@ import matplotlib.pyplot as plt
 from sklearn import datasets
 
 
-def loading_score(pc, index):
-    # Get the name of the top 10 samples that contribute most to pc1.
-
+def loading_score(pc, features):
     # Get the loading scores
-    loading_scores = pd.Series(data=pc.components_[0], index=index)
-    # Sort the loading scores based on their magnitude
+    loading_scores = pd.Series(data=pc.components_[0], index=features)
+    # Sort the loading scores based on their values
     sorted_loading_scores = loading_scores.abs().sort_values(ascending=False)
-    # Get the names of the top 10
-    top_10 = sorted_loading_scores[0:10].index.values
-    # Print the names and their scores
-    print(loading_scores[top_10])
+    # Get the indices
+    indices = sorted_loading_scores.index.values
+    # Print the features and their scores
+    print('\n----- The features that contribute most to PC1 -----')
+    print(loading_scores[indices])
 
 
 def visualize_pc(df, ev_ratio):
